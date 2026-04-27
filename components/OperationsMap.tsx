@@ -75,11 +75,10 @@ export default function OperationsMap() {
                             key={node.id}
                             type="button"
                             onClick={() => setActiveId(node.id)}
-                            className={`absolute z-20 w-44 rounded-2xl border p-4 text-left backdrop-blur transition duration-300 ${node.position} ${
-                                isActive
+                            className={`absolute z-20 w-44 rounded-2xl border p-4 text-left backdrop-blur transition duration-300 ${node.position} ${isActive
                                     ? "border-white/70 bg-white/10 shadow-[0_0_45px_rgba(255,255,255,0.16)]"
                                     : "border-neutral-800 bg-neutral-950/80 hover:-translate-y-1 hover:border-neutral-500"
-                            }`}
+                                }`}
                         >
                             <span className="text-xs uppercase tracking-[0.22em] text-neutral-500">
                                 {node.type}
