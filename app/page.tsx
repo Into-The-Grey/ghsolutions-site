@@ -1,5 +1,6 @@
 import ButtonLink from "@/components/ButtonLink";
 import Card from "@/components/Card";
+import HeroVisual from "@/components/HeroVisual";
 import PageShell from "@/components/PageShell";
 import StatusBadge from "@/components/StatusBadge";
 
@@ -33,25 +34,25 @@ const focusAreas = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-100">
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-32">
-        <StatusBadge>Active Build</StatusBadge>
-
-        <h1 className="mt-6 max-w-5xl text-5xl font-bold tracking-tight sm:text-7xl">
-          GreyHat Solutions builds security-minded systems, tools, and digital
-          infrastructure.
-        </h1>
-
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
-          A focused home for cybersecurity projects, technical experiments,
-          automation work, AI-assisted tooling, and practical infrastructure
-          built around control, privacy, and reliability.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <ButtonLink href="/projects">View Projects</ButtonLink>
-          <ButtonLink href="/about" variant="secondary">
-            Learn More
-          </ButtonLink>
+      <section className="relative flex min-h-screen items-center overflow-hidden px-6 py-32">
+        <HeroVisual />
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <StatusBadge>Active Build</StatusBadge>
+          <h1 className="mt-6 max-w-5xl text-5xl font-bold tracking-tight sm:text-7xl">
+            GreyHat Solutions builds security-minded systems, tools, and digital
+            infrastructure.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
+            A focused home for cybersecurity projects, technical experiments,
+            automation work, AI-assisted tooling, and practical infrastructure
+            built around control, privacy, and reliability.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <ButtonLink href="/projects">View Projects</ButtonLink>
+            <ButtonLink href="/about" variant="secondary">
+              Learn More
+            </ButtonLink>
+          </div>
         </div>
       </section>
 
