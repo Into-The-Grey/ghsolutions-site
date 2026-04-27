@@ -1,6 +1,13 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about GreyHat Solutions, a technical workspace for cybersecurity, systems, automation, and controlled experimentation.",
+};
 
 export default function AboutPage() {
   return (

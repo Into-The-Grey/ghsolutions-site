@@ -1,6 +1,13 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Practical technical capabilities focused on cybersecurity, automation, infrastructure, and documentation.",
+};
 
 const services = [
   {

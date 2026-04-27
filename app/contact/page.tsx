@@ -1,6 +1,13 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact GreyHat Solutions for project inquiries, technical collaboration, and future secure communication options.",
+};
 
 export default function ContactPage() {
   return (

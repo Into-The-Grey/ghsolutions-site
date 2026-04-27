@@ -2,7 +2,14 @@ import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
 import { projects } from "@/lib/projects";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore active GreyHat Solutions projects, research work, tools, and technical systems.",
+};
 
 export default function ProjectsPage() {
   return (
