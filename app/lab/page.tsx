@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
 import StatusBadge from "@/components/StatusBadge";
+import Link from "next/link";
 import {
     labBoundaries,
     labEnvironments,
@@ -37,6 +38,29 @@ export default function LabPage() {
                     private storage concepts, and project documentation. It is not a
                     random pile of tools — the goal is repeatable, bounded technical work.
                 </p>
+            </section>
+
+            <section className="mt-10 rounded-3xl border border-neutral-800 bg-neutral-900/90 p-8 shadow-[0_0_70px_rgba(255,255,255,0.035)] backdrop-blur">
+                <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+                    Lab Notes
+                </p>
+                <div className="mt-3 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+                    <div>
+                        <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-neutral-100">
+                            Read the first-principles note behind the lab.
+                        </h2>
+                        <p className="mt-4 max-w-2xl leading-7 text-neutral-400">
+                            This writeup explains why the lab exists, how it should be separated
+                            from production systems, and why repeatability matters.
+                        </p>
+                    </div>
+                    <Link
+                        href="/writeups/lab-environment-first-principles"
+                        className="inline-flex rounded-2xl border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:border-neutral-400"
+                    >
+                        Read Lab Note →
+                    </Link>
+                </div>
             </section>
 
             <section className="mt-16">

@@ -68,7 +68,10 @@ export default async function WriteupDetailPage({ params }: WriteupPageProps) {
                         </Card>
                     ))}
                 </div>
-                <div className="mt-12">
+                <div className="mt-12 flex flex-wrap gap-4">
+                    {"relatedHref" in writeup && "relatedLabel" in writeup ? (
+                        <ButtonLink href={writeup.relatedHref}>{writeup.relatedLabel}</ButtonLink>
+                    ) : null}
                     <ButtonLink href="/writeups" variant="secondary">
                         ← Back to Writeups
                     </ButtonLink>

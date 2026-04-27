@@ -11,6 +11,34 @@ export const metadata: Metadata = {
         "Technical writeups, project notes, build logs, and operational field notes from GreyHat Solutions.",
 };
 
+const publishedWriteups = writeups.filter(
+    (writeup) => writeup.status === "Published",
+);
+
+const queuedWriteups = writeups.filter(
+    (writeup) => writeup.status !== "Published",
+);
+
+function WriteupCard({ writeup }: { writeup: (typeof writeups)[number] }) {
+    return (
+        <Link href={`/writeups/${writeup.slug}`}>
+            <Card title={writeup.title} description={writeup.summary}>
+                <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
+                        {writeup.category}
+                    </span>
+                    <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
+                        {writeup.status}
+                    </span>
+                    <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
+                        {writeup.readTime}
+                    </span>
+                </div>
+            </Card>
+        </Link>
+    );
+}
+
 export default function WriteupsPage() {
     return (
         <PageShell>
@@ -20,25 +48,28 @@ export default function WriteupsPage() {
                 description="A growing library of practical notes covering projects, infrastructure, security research, automation, and lessons learned while building real systems."
                 maxWidth="wide"
             />
-            <div className="mt-10 grid gap-6">
-                {writeups.map((writeup) => (
-                    <Link key={writeup.slug} href={`/writeups/${writeup.slug}`}>
-                        <Card title={writeup.title} description={writeup.summary}>
-                            <div className="flex flex-wrap gap-2">
-                                <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
-                                    {writeup.category}
-                                </span>
-                                <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
-                                    {writeup.status}
-                                </span>
-                                <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
-                                    {writeup.readTime}
-                                </span>
-                            </div>
-                        </Card>
-                    </Link>
-                ))}
-            </div>
+            <section className="mt-10">
+                <div className="grid gap-6">
+                    {publishedWriteups.map((writeup) => (
+                        <WriteupCard key={writeup.slug} writeup={writeup} />
+                    ))}
+                </div>
+            </section>
+            {queuedWriteups.length > 0 ? (
+                <section className="mt-16">
+                    <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+                        Queued Notes
+                    </p>
+                    <h2 className="mt-3 text-3xl font-bold tracking-tight text-neutral-100">
+                        Planned writeups in the pipeline.
+                    </h2>
+                    <div className="mt-8 grid gap-6 md:grid-cols-2">
+                        {queuedWriteups.map((writeup) => (
+                            <WriteupCard key={writeup.slug} writeup={writeup} />
+                        ))}
+                    </div>
+                </section>
+            ) : null}
         </PageShell>
     );
 }

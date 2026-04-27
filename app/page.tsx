@@ -151,7 +151,10 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {writeups.slice(0, 3).map((writeup) => (
+            {writeups
+              .filter((writeup) => writeup.status === "Published")
+              .slice(0, 3)
+              .map((writeup) => (
               <Link
                 key={writeup.slug}
                 href={`/writeups/${writeup.slug}`}
