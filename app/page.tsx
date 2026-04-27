@@ -155,22 +155,22 @@ export default function Home() {
               .filter((writeup) => writeup.status === "Published")
               .slice(0, 3)
               .map((writeup) => (
-              <Link
-                key={writeup.slug}
-                href={`/writeups/${writeup.slug}`}
-                className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5 transition hover:-translate-y-1 hover:border-neutral-600"
-              >
-                <p className="text-xs uppercase tracking-[0.22em] text-neutral-500">
-                  {writeup.category}
-                </p>
-                <h3 className="mt-3 text-xl font-semibold text-neutral-100">
-                  {writeup.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-neutral-400">
-                  {writeup.summary}
-                </p>
-              </Link>
-            ))}
+                <Link
+                  key={writeup.slug}
+                  href={`/writeups/${writeup.slug}`}
+                  className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5 transition hover:-translate-y-1 hover:border-neutral-600"
+                >
+                  <p className="text-xs uppercase tracking-[0.22em] text-neutral-500">
+                    {writeup.category}
+                  </p>
+                  <h3 className="mt-3 text-xl font-semibold text-neutral-100">
+                    {writeup.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-neutral-400">
+                    {writeup.summary}
+                  </p>
+                </Link>
+              ))}
           </div>
         </div>
       </PageShell>
