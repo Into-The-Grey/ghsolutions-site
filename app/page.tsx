@@ -5,6 +5,7 @@ import HeroVisual from "@/components/HeroVisual";
 import PageShell from "@/components/PageShell";
 import SignalConsole from "@/components/SignalConsole";
 import StatusBadge from "@/components/StatusBadge";
+import { writeups } from "@/lib/writeups";
 import Link from "next/link";
 
 const featuredProjects = [
@@ -102,6 +103,46 @@ export default function Home() {
               description={project.description}
             />
           ))}
+        </div>
+      </PageShell>
+
+      <PageShell>
+        <div className="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-8 shadow-[0_0_70px_rgba(255,255,255,0.035)] backdrop-blur">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+                Latest Writeups
+              </p>
+              <h2 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight">
+                Notes from the build, the lab, and the field.
+              </h2>
+            </div>
+            <Link
+              href="/writeups"
+              className="inline-flex rounded-2xl border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:border-neutral-400"
+            >
+              View All Writeups →
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {writeups.slice(0, 3).map((writeup) => (
+              <Link
+                key={writeup.slug}
+                href={`/writeups/${writeup.slug}`}
+                className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5 transition hover:-translate-y-1 hover:border-neutral-600"
+              >
+                <p className="text-xs uppercase tracking-[0.22em] text-neutral-500">
+                  {writeup.category}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold text-neutral-100">
+                  {writeup.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-neutral-400">
+                  {writeup.summary}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </PageShell>
 
