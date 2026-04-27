@@ -2,6 +2,7 @@ import ButtonLink from "@/components/ButtonLink";
 import Card from "@/components/Card";
 import HeroVisual from "@/components/HeroVisual";
 import PageShell from "@/components/PageShell";
+import SignalConsole from "@/components/SignalConsole";
 import StatusBadge from "@/components/StatusBadge";
 
 const featuredProjects = [
@@ -55,6 +56,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PageShell>
+        <SignalConsole />
+      </PageShell>
 
       <PageShell>
         <div className="grid gap-6 md:grid-cols-3">
