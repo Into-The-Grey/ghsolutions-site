@@ -4,7 +4,7 @@ import Script from "next/script";
 import type React from "react";
 
 const FORM_ID = "xvzdnbwg";
-const TURNSTILE_SITE_KEY = "YOUR_CLOUDFLARE_TURNSTILE_SITE_KEY";
+const TURNSTILE_SITE_KEY = "0x4AAAAAABrwtKRJWlOJxunY";
 
 const inputClass =
     "w-full rounded-2xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none transition placeholder:text-neutral-700 focus:border-neutral-500";
