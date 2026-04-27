@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
 
 const services = [
@@ -26,25 +27,22 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 px-6 py-32 text-neutral-100">
-      <section className="mx-auto max-w-6xl">
-        <SectionHeader
-          eyebrow="Services"
-          title="Practical technical capabilities with a security-first mindset."
-          description="A focused set of capabilities built around control, privacy, documentation, and real-world usefulness."
-          maxWidth="wide"
-        />
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <Card
-              key={service.title}
-              title={service.title}
-              description={service.description}
-            />
-          ))}
-        </div>
-      </section>
-    </main>
+    <PageShell>
+      <SectionHeader
+        eyebrow="Services"
+        title="Practical technical capabilities with a security-first mindset."
+        description="A focused set of capabilities built around control, privacy, documentation, and real-world usefulness."
+        maxWidth="wide"
+      />
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {services.map((service) => (
+          <Card
+            key={service.title}
+            title={service.title}
+            description={service.description}
+          />
+        ))}
+      </div>
+    </PageShell>
   );
 }

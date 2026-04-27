@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
 
 const projects = [
@@ -26,25 +27,22 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 px-6 py-32 text-neutral-100">
-      <section className="mx-auto max-w-6xl">
-        <SectionHeader
-          eyebrow="Projects"
-          title="Active technical projects and research work."
-          description="A growing collection of practical systems, experiments, tools, and infrastructure projects."
-          maxWidth="wide"
-        />
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <Card
-              key={project.title}
-              title={project.title}
-              description={project.description}
-            />
-          ))}
-        </div>
-      </section>
-    </main>
+    <PageShell>
+      <SectionHeader
+        eyebrow="Projects"
+        title="Active technical projects and research work."
+        description="A growing collection of practical systems, experiments, tools, and infrastructure projects."
+        maxWidth="wide"
+      />
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {projects.map((project) => (
+          <Card
+            key={project.title}
+            title={project.title}
+            description={project.description}
+          />
+        ))}
+      </div>
+    </PageShell>
   );
 }
