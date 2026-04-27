@@ -1,3 +1,6 @@
+import Card from "@/components/Card";
+import SectionHeader from "@/components/SectionHeader";
+
 const projects = [
   {
     title: "VEGA",
@@ -23,29 +26,22 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-
-
     <main className="min-h-screen bg-neutral-950 px-6 py-32 text-neutral-100">
       <section className="mx-auto max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
-          Projects
-        </p>
-
-        <h1 className="mt-4 text-5xl font-bold tracking-tight">
-          Active technical projects and research work.
-        </h1>
+        <SectionHeader
+          eyebrow="Projects"
+          title="Active technical projects and research work."
+          description="A growing collection of practical systems, experiments, tools, and infrastructure projects."
+          maxWidth="wide"
+        />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
-            <div
+            <Card
               key={project.title}
-              className="rounded-3xl border border-neutral-800 bg-neutral-900 p-6 transition hover:-translate-y-1 hover:border-neutral-600"
-            >
-              <h2 className="text-2xl font-semibold">{project.title}</h2>
-              <p className="mt-4 leading-7 text-neutral-400">
-                {project.description}
-              </p>
-            </div>
+              title={project.title}
+              description={project.description}
+            />
           ))}
         </div>
       </section>
