@@ -168,6 +168,44 @@ export default function Home() {
           </div>
         </div>
       </PageShell>
+
+      <PageShell>
+        <div className="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-8 shadow-[0_0_70px_rgba(255,255,255,0.035)] backdrop-blur">
+          <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+            Launch Surface
+          </p>
+          <div className="mt-3 grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+            <div>
+              <h2 className="max-w-3xl text-4xl font-bold tracking-tight">
+                A public command surface for systems, services, and field notes.
+              </h2>
+              <p className="mt-5 max-w-2xl leading-7 text-neutral-400">
+                GreyHat Solutions is designed to grow from a public website into
+                a deeper technical ecosystem: project documentation, service
+                intake, operational maps, writeups, and future private
+                account-based tools.
+              </p>
+            </div>
+            <div className="grid gap-3">
+              {[
+                "Production site online",
+                "Cloudflare domain connected",
+                "Vercel deployment active",
+                "Protected contact intake enabled",
+                "Operations map staged",
+                "Writeups system initialized",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-neutral-300"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </PageShell>
     </main>
   );
 }

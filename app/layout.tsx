@@ -39,13 +39,32 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem("ghs-theme") || "dark";
+    var reducedMotion = localStorage.getItem("ghs-reduced-motion") === "true";
+    var highContrast = localStorage.getItem("ghs-high-contrast") === "true";
+    document.documentElement.classList.remove("theme-dark", "theme-light");
+    document.documentElement.classList.add("theme-" + theme);
+    if (reducedMotion) document.documentElement.classList.add("reduced-motion");
+    if (highContrast) document.documentElement.classList.add("high-contrast");
+  } catch (e) {
+    document.documentElement.classList.add("theme-dark");
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="theme-dark">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="bg-neutral-950 text-neutral-100 antialiased">
         <Navbar />
         {children}
