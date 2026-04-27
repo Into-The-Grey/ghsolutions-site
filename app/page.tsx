@@ -95,6 +95,32 @@ export default function Home() {
       </PageShell>
 
       <PageShell>
+        <div className="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-8 shadow-[0_0_70px_rgba(255,255,255,0.035)] backdrop-blur">
+          <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+            Lab Environment
+          </p>
+          <div className="mt-3 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <h2 className="max-w-3xl text-4xl font-bold tracking-tight">
+                The work is backed by a controlled technical lab.
+              </h2>
+              <p className="mt-4 max-w-2xl leading-7 text-neutral-400">
+                GreyHat Solutions is supported by a practical environment for
+                infrastructure experiments, cybersecurity learning, automation
+                systems, deployment workflows, and technical documentation.
+              </p>
+            </div>
+            <Link
+              href="/lab"
+              className="inline-flex rounded-2xl border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-100 transition hover:border-neutral-400"
+            >
+              View Lab →
+            </Link>
+          </div>
+        </div>
+      </PageShell>
+
+      <PageShell>
         <div className="grid gap-6 md:grid-cols-3">
           {featuredProjects.map((project) => (
             <Card
