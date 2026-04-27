@@ -1,29 +1,8 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
-
-const projects = [
-  {
-    title: "VEGA",
-    description:
-      "A personal AI system focused on long-term memory, modular intelligence, local control, and practical automation.",
-  },
-  {
-    title: "STAR",
-    description:
-      "A self-hosted assistant concept built around reminders, task support, mobile access, and private infrastructure.",
-  },
-  {
-    title: "kali2go",
-    description:
-      "A portable Kali workstation and field-lab platform for controlled cybersecurity practice and network experimentation.",
-  },
-  {
-    title: "d4rk5cou7",
-    description:
-      "A research-oriented site classification and intelligence project focused on categorization, risk signals, and structured analysis.",
-  },
-];
+import { projects } from "@/lib/projects";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   return (
@@ -36,11 +15,13 @@ export default function ProjectsPage() {
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
-          <Card
-            key={project.title}
-            title={project.title}
-            description={project.description}
-          />
+          <Link key={project.slug} href={`/projects/${project.slug}`}>
+            <Card title={project.title} description={project.summary}>
+              <span className="text-sm font-semibold text-neutral-300">
+                View project →
+              </span>
+            </Card>
+          </Link>
         ))}
       </div>
     </PageShell>
