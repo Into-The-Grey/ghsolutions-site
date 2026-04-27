@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
+import ServiceTrackCard from "@/components/ServiceTrackCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,61 +33,76 @@ const services = [
   },
 ];
 
-const engagements = [
+const engagementTracks = [
   {
-    track: "Technical Advisory",
-    audience: "For those who need help planning, troubleshooting, or making architecture decisions.",
+    title: "Technical Advisory",
+    audience:
+      "For individuals, founders, small teams, or technical builders who need help planning, troubleshooting, or making architecture decisions before committing time and money.",
+    range: "$75–$150/hr",
     includes: [
-      "Architecture planning sessions",
-      "Troubleshooting and root-cause review",
-      "Technology selection guidance",
-      "Written session notes on request",
+      "Architecture review and planning",
+      "Technical troubleshooting sessions",
+      "Tooling and platform recommendations",
+      "Deployment, DNS, or hosting guidance",
+      "Clear next-step action plan",
     ],
-    range: "$75–$150 / hr",
+    note: "Best for focused questions, planning sessions, and targeted technical direction.",
   },
   {
-    track: "Web Presence Buildout",
-    audience: "For small businesses, personal brands, or technical portfolios that need a clean website and deployment pipeline.",
+    title: "Web Presence Buildout",
+    audience:
+      "For people or small businesses that need a clean, serious website with a modern deployment pipeline, domain setup, and room to grow.",
+    range: "$500–$2,500+",
     includes: [
-      "Domain and DNS configuration",
-      "Frontend development and deployment",
-      "Performance and accessibility baseline",
+      "Next.js or static website foundation",
+      "Vercel deployment workflow",
+      "Cloudflare DNS configuration",
+      "Core pages and responsive layout",
+      "Basic metadata and launch checklist",
+    ],
+    note: "Final scope depends on content volume, design complexity, integrations, and revision depth.",
+  },
+  {
+    title: "Private Infrastructure Setup",
+    audience:
+      "For users who want more control over hosting, homelab systems, private services, DNS, storage, backups, or self-hosted tools.",
+    range: "$750–$3,500+",
+    includes: [
+      "Infrastructure planning and topology",
+      "Domain, DNS, and access strategy",
+      "Server or NAS service planning",
+      "Backup and recovery considerations",
       "Documentation handoff",
     ],
-    range: "$500–$2,500+",
+    note: "Best suited for controlled environments where reliability, ownership, and documentation matter.",
   },
   {
-    track: "Private Infrastructure Setup",
-    audience: "For individuals or small teams who need a controlled, reliable technical foundation.",
-    includes: [
-      "Hosting and deployment architecture",
-      "DNS and Cloudflare configuration",
-      "Basic security hardening",
-      "Backup and recovery planning",
-    ],
-    range: "$750–$3,500+",
-  },
-  {
-    track: "Automation & Internal Tooling",
-    audience: "For custom workflows, scripts, dashboards, private assistants, or operational tools.",
-    includes: [
-      "Workflow design and scoping",
-      "Custom script or tool development",
-      "Integration with existing systems",
-      "Runbook and handoff documentation",
-    ],
+    title: "Automation & Tooling",
+    audience:
+      "For custom scripts, dashboards, internal tools, assistant workflows, repeatable operations, or private productivity systems.",
     range: "$1,000–$5,000+",
+    includes: [
+      "Workflow discovery and mapping",
+      "Custom tool or script planning",
+      "Prototype implementation",
+      "Configuration and environment setup",
+      "Usage documentation",
+    ],
+    note: "Pricing varies heavily based on integrations, complexity, data handling, and maintenance expectations.",
   },
   {
-    track: "Security Workflow Review",
-    audience: "For OSINT workflows, lab design, security posture review, and controlled testing environments.",
-    includes: [
-      "Operational workflow audit",
-      "Lab design recommendations",
-      "OSINT tooling and methodology review",
-      "Written findings and improvement notes",
-    ],
+    title: "Security Workflow Review",
+    audience:
+      "For people building OSINT workflows, lab environments, documentation systems, or controlled security-learning setups.",
     range: "$300–$1,500+",
+    includes: [
+      "Workflow review and risk notes",
+      "Lab environment planning",
+      "OSINT process organization",
+      "Tooling and documentation recommendations",
+      "Clear boundaries and safe-use guidance",
+    ],
+    note: "This is not a promise of offensive testing work. Scope must be clearly authorized and defined first.",
   },
 ];
 
@@ -109,64 +125,40 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <div className="mt-24">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
-            Engagement Models
-          </p>
-          <h2 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight text-neutral-100">
-            Scope-based service tracks with transparent starting ranges.
-          </h2>
-          <p className="mt-4 max-w-2xl leading-7 text-neutral-400">
-            Each engagement is scoped individually. Ranges below are starting
-            estimates — final pricing depends on scope, timeline, technical
-            complexity, and required documentation.
-          </p>
-        </div>
-
-        <div className="grid gap-4">
-          {engagements.map((eng) => (
-            <div
-              key={eng.track}
-              className="grid gap-6 rounded-3xl border border-neutral-800 bg-neutral-900/90 p-6 backdrop-blur transition hover:border-neutral-600 lg:grid-cols-[1fr_1fr_200px]"
-            >
-              <div>
-                <p className="text-lg font-semibold text-neutral-100">
-                  {eng.track}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-neutral-400">
-                  {eng.audience}
-                </p>
-              </div>
-              <ul className="space-y-2">
-                {eng.includes.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2 text-sm text-neutral-400"
-                  >
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-600" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col justify-center lg:items-end">
-                <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-                  Starting range
-                </p>
-                <p className="mt-2 text-xl font-bold text-neutral-100">
-                  {eng.range}
-                </p>
-              </div>
-            </div>
+      <section className="mt-24">
+        <SectionHeader
+          eyebrow="Engagement Models"
+          title="Clear service tracks with scope-based pricing ranges."
+          description="These ranges are starting estimates meant to help qualify the size of an engagement. Final pricing depends on scope, timeline, technical complexity, risk, documentation needs, and required support."
+          maxWidth="wide"
+        />
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {engagementTracks.map((track) => (
+            <ServiceTrackCard
+              key={track.title}
+              title={track.title}
+              audience={track.audience}
+              includes={track.includes}
+              range={track.range}
+              note={track.note}
+            />
           ))}
         </div>
+      </section>
 
-        <p className="mt-8 text-xs leading-6 text-neutral-600">
-          Ranges are starting estimates. Final pricing depends on scope,
-          timeline, technical complexity, and required documentation. A quote is
-          provided before any work begins.
+      <section className="mt-16 rounded-3xl border border-neutral-800 bg-neutral-900/90 p-8 shadow-[0_0_60px_rgba(255,255,255,0.03)] backdrop-blur">
+        <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+          Scope First
         </p>
-      </div>
+        <h2 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-neutral-100">
+          Every serious engagement starts with defining the actual problem.
+        </h2>
+        <p className="mt-5 max-w-3xl leading-7 text-neutral-400">
+          The goal is not to sell a generic package. The goal is to understand
+          the environment, identify the real constraints, define safe boundaries,
+          and build something maintainable.
+        </p>
+      </section>
     </PageShell>
   );
 }
