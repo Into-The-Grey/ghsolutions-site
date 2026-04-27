@@ -7,6 +7,7 @@ const navLinks = [
     { href: "/projects", label: "Projects" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
+    { href: "/44rc0n", label: "44rc0n", danger: true },
 ];
 
 export default function Navbar() {
@@ -26,7 +27,11 @@ export default function Navbar() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="transition hover:text-neutral-100"
+                            className={
+                                link.danger
+                                    ? "font-mono text-red-500 transition hover:text-red-300 hover:drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]"
+                                    : "transition hover:text-neutral-100"
+                            }
                         >
                             {link.label}
                         </Link>
@@ -49,7 +54,11 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="rounded-2xl border border-neutral-800 bg-neutral-900 px-4 py-3 text-sm font-medium text-neutral-300 transition hover:border-neutral-600 hover:text-neutral-100"
+                                className={
+                                    link.danger
+                                        ? "rounded-2xl border border-red-950 bg-red-950/30 px-4 py-3 font-mono text-sm font-semibold text-red-400 transition hover:border-red-700 hover:text-red-200"
+                                        : "rounded-2xl border border-neutral-800 bg-neutral-900 px-4 py-3 text-sm font-medium text-neutral-300 transition hover:border-neutral-600 hover:text-neutral-100"
+                                }
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.label}
