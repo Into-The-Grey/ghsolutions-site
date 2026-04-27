@@ -1,33 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ghsolutions-site
 
-## Getting Started
+Official website project for **GreyHat Solutions**.
 
-First, run the development server:
+Built with:
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Vercel
+- Cloudflare DNS
+
+## Project Purpose
+
+This site is the central public home for GreyHat Solutions, including:
+
+- Cybersecurity projects
+- Automation systems
+- AI-assisted tooling
+- Homelab and infrastructure work
+- Technical documentation
+- Project writeups
+
+## Current Pages
+
+```txt
+/
+/about
+/projects
+/projects/vega
+/projects/star
+/projects/kali2go
+/projects/d4rk5cou7
+/services
+/contact
+```
+
+## Project Structure
+
+```txt
+ghsolutions-site/
+├── app/
+│   ├── about/
+│   ├── contact/
+│   ├── projects/
+│   ├── services/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   └── page.tsx
+├── components/
+│   ├── ButtonLink.tsx
+│   ├── Card.tsx
+│   ├── Footer.tsx
+│   ├── Navbar.tsx
+│   ├── PageShell.tsx
+│   ├── SectionHeader.tsx
+│   └── StatusBadge.tsx
+├── lib/
+│   └── projects.ts
+├── public/
+├── package.json
+└── README.md
+```
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open: <http://localhost:3000>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build Test
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Before deploying, run:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+This confirms the site can compile for production.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment Plan
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The intended deployment flow is:
+
+```txt
+Local development
+→ GitHub repository
+→ Vercel deployment
+→ Cloudflare-managed domain
+```
+
+Cloudflare will remain the DNS control point. Vercel will handle hosting and deployment.
+
+## Project Notes
+
+This project intentionally starts simple:
+
+- No database yet
+- No authentication yet
+- No contact form backend yet
+- No admin dashboard yet
+
+Those features may be added later after the public site foundation is stable.
+
+## Status
+
+Active build.
+
 
 ## Deploy on Vercel
 
