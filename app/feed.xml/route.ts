@@ -3,19 +3,19 @@ import { publishedWriteups } from "@/lib/writeups";
 const siteUrl = "https://greyhat-solutions.com";
 
 function escapeXml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&apos;");
+    return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&apos;");
 }
 
 export async function GET() {
-  const items = publishedWriteups
-    .map((writeup) => {
-      const url = `${siteUrl}/writeups/${writeup.slug}`;
-      return `
+    const items = publishedWriteups
+        .map((writeup) => {
+            const url = `${siteUrl}/writeups/${writeup.slug}`;
+            return `
         <item>
           <title>${escapeXml(writeup.title)}</title>
           <link>${url}</link>
@@ -25,10 +25,10 @@ export async function GET() {
           <category>${escapeXml(writeup.category)}</category>
         </item>
       `;
-    })
-    .join("");
+        })
+        .join("");
 
-  const rss = `<?xml version="1.0" encoding="UTF-8" ?>
+    const rss = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GreyHat Solutions Writeups</title>
@@ -41,10 +41,10 @@ export async function GET() {
   </channel>
 </rss>`;
 
-  return new Response(rss, {
-    headers: {
-      "Content-Type": "application/rss+xml; charset=utf-8",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
-    },
-  });
+    return new Response(rss, {
+        headers: {
+            "Content-Type": "application/rss+xml; charset=utf-8",
+            "Cache-Control": "public, max-age=3600, s-maxage=3600",
+        },
+    });
 }
