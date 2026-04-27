@@ -2,7 +2,7 @@ import ButtonLink from "@/components/ButtonLink";
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import StatusBadge from "@/components/StatusBadge";
-import { getWriteupBySlug, writeups } from "@/lib/writeups";
+import { getPublishedWriteupBySlug, publishedWriteups } from "@/lib/writeups";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -13,7 +13,7 @@ type WriteupPageProps = {
 };
 
 export function generateStaticParams() {
-    return writeups.map((writeup) => ({
+    return publishedWriteups.map((writeup) => ({
         slug: writeup.slug,
     }));
 }
@@ -22,7 +22,7 @@ export async function generateMetadata({
     params,
 }: WriteupPageProps): Promise<Metadata> {
     const { slug } = await params;
-    const writeup = getWriteupBySlug(slug);
+    const writeup = getPublishedWriteupBySlug(slug);
     if (!writeup) {
         return {
             title: "Writeup Not Found",
@@ -36,7 +36,7 @@ export async function generateMetadata({
 
 export default async function WriteupDetailPage({ params }: WriteupPageProps) {
     const { slug } = await params;
-    const writeup = getWriteupBySlug(slug);
+    const writeup = getPublishedWriteupBySlug(slug);
     if (!writeup) {
         notFound();
     }

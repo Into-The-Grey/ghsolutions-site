@@ -149,6 +149,14 @@ export const writeups = [
 
 export type Writeup = (typeof writeups)[number];
 
+export const publishedWriteups = writeups.filter(
+    (writeup) => writeup.status === "Published",
+);
+
 export function getWriteupBySlug(slug: string) {
     return writeups.find((writeup) => writeup.slug === slug);
+}
+
+export function getPublishedWriteupBySlug(slug: string) {
+    return publishedWriteups.find((writeup) => writeup.slug === slug);
 }

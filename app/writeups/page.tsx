@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
-import { writeups } from "@/lib/writeups";
+import { publishedWriteups } from "@/lib/writeups";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -11,15 +11,7 @@ export const metadata: Metadata = {
         "Technical writeups, project notes, build logs, and operational field notes from GreyHat Solutions.",
 };
 
-const publishedWriteups = writeups.filter(
-    (writeup) => writeup.status === "Published",
-);
-
-const queuedWriteups = writeups.filter(
-    (writeup) => writeup.status !== "Published",
-);
-
-function WriteupCard({ writeup }: { writeup: (typeof writeups)[number] }) {
+function WriteupCard({ writeup }: { writeup: (typeof publishedWriteups)[number] }) {
     return (
         <Link href={`/writeups/${writeup.slug}`}>
             <Card title={writeup.title} description={writeup.summary}>
@@ -55,21 +47,7 @@ export default function WriteupsPage() {
                     ))}
                 </div>
             </section>
-            {queuedWriteups.length > 0 ? (
-                <section className="mt-16">
-                    <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
-                        Queued Notes
-                    </p>
-                    <h2 className="mt-3 text-3xl font-bold tracking-tight text-neutral-100">
-                        Planned writeups in the pipeline.
-                    </h2>
-                    <div className="mt-8 grid gap-6 md:grid-cols-2">
-                        {queuedWriteups.map((writeup) => (
-                            <WriteupCard key={writeup.slug} writeup={writeup} />
-                        ))}
-                    </div>
-                </section>
-            ) : null}
+
         </PageShell>
     );
 }

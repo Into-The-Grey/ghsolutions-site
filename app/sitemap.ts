@@ -1,5 +1,5 @@
 import { projects } from "@/lib/projects";
-import { writeups } from "@/lib/writeups";
+import { publishedWriteups } from "@/lib/writeups";
 import type { MetadataRoute } from "next";
 
 const siteUrl = "https://greyhat-solutions.com";
@@ -33,11 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
-    const writeupUrls = writeups.map((writeup) => ({
+    const writeupUrls = publishedWriteups.map((writeup) => ({
         url: `${siteUrl}/writeups/${writeup.slug}`,
         lastModified: new Date(writeup.date),
         changeFrequency: "monthly" as const,
-        priority: writeup.status === "Published" ? 0.75 : 0.4,
+        priority: 0.75,
     }));
 
     return [...staticUrls, ...projectUrls, ...writeupUrls];

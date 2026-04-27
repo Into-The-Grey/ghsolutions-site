@@ -5,7 +5,7 @@ import HeroVisual from "@/components/HeroVisual";
 import PageShell from "@/components/PageShell";
 import SignalConsole from "@/components/SignalConsole";
 import StatusBadge from "@/components/StatusBadge";
-import { writeups } from "@/lib/writeups";
+import { publishedWriteups } from "@/lib/writeups";
 import Link from "next/link";
 
 const featuredProjects = [
@@ -151,10 +151,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {writeups
-              .filter((writeup) => writeup.status === "Published")
-              .slice(0, 3)
-              .map((writeup) => (
+            {publishedWriteups.slice(0, 3).map((writeup) => (
                 <Link
                   key={writeup.slug}
                   href={`/writeups/${writeup.slug}`}
