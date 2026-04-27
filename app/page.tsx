@@ -1,4 +1,5 @@
 import ButtonLink from "@/components/ButtonLink";
+import CapabilitiesMatrix from "@/components/CapabilitiesMatrix";
 import Card from "@/components/Card";
 import HeroVisual from "@/components/HeroVisual";
 import PageShell from "@/components/PageShell";
@@ -59,6 +60,10 @@ export default function Home() {
 
       <PageShell>
         <SignalConsole />
+      </PageShell>
+
+      <PageShell>
+        <CapabilitiesMatrix />
       </PageShell>
 
       <PageShell>
