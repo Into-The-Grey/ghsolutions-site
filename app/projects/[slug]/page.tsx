@@ -53,6 +53,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
       </div>
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="lg:col-span-2">
+          <Card title="Current State" description={project.currentState} />
+        </div>
         <Card title="Purpose" description={project.purpose} />
         <InfoList title="Tech Stack" items={project.techStack} />
         <InfoList title="Key Features" items={project.features} />

@@ -7,6 +7,8 @@ export const projects = [
       "A personal AI system focused on long-term memory, modular intelligence, local control, and practical automation.",
     description:
       "VEGA is designed as a private, controllable AI system that can grow over time through memory, indexing, modular services, and direct feedback. The focus is not on building a gimmick chatbot, but on building a practical intelligence layer for projects, infrastructure, and daily workflows.",
+    currentState:
+      "VEGA is currently an active local AI-system concept with architecture and memory design work underway. The core direction is defined, but the static knowledge base, indexing layer, and service interfaces are still being built out. The current focus is turning the concept into a stable documented foundation rather than presenting it as a finished assistant.",
     purpose:
       "Create a personal AI system that can support long-term projects, remember useful context, assist with technical workflows, and remain under direct owner control.",
     techStack: [
@@ -41,6 +43,8 @@ export const projects = [
       "A self-hosted assistant concept built around reminders, task support, mobile access, and private infrastructure.",
     description:
       "STAR is a practical support assistant intended to run on private infrastructure and provide useful day-to-day help without unnecessary complexity. The first goal is a stable foundation: backend health checks, mobile-friendly UI, reminders, notes, configuration, and simple self-hosted deployment.",
+    currentState:
+      "STAR is currently in the foundation stage. The intended scope is defined around reminders, notes, mobile-friendly access, and self-hosted private infrastructure. The next practical milestone is a stable backend/frontend base with health checks, configuration visibility, and a simple data layer before adding more advanced assistant behavior.",
     purpose:
       "Create a lightweight, private assistant that can provide reminders, task support, notes, and mobile-friendly access without depending on a public SaaS assistant.",
     techStack: [
@@ -75,6 +79,8 @@ export const projects = [
       "A portable Kali workstation and field-lab platform for controlled cybersecurity practice and network experimentation.",
     description:
       "kali2go is a Raspberry Pi-based portable Kali environment intended for controlled practice, field-style lab workflows, and lightweight network experimentation. The goal is a dependable portable desktop and workflow launcher, not a chaotic pile of one-off scripts.",
+    currentState:
+      "kali2go is an active field-lab build based around Raspberry Pi hardware and Kali Linux ARM. The concept has moved beyond idea stage into practical setup work, including SSH access, network service experiments, and workflow launcher planning. Current work is focused on reliability, power stability, and safe workflow switching.",
     purpose:
       "Create a portable cybersecurity lab box that can be accessed from a Mac and used for controlled practice, field-style exercises, and repeatable workflows.",
     techStack: [
@@ -110,6 +116,8 @@ export const projects = [
       "A research-oriented site classification and intelligence project focused on categorization, risk signals, and structured analysis.",
     description:
       "d4rk5cou7 is an experimental research project focused on analyzing and classifying web content through structured signals. The long-term idea is to support safer research workflows by organizing URLs, metadata, page signals, and category/risk indicators into a more useful intelligence layer.",
+    currentState:
+      "d4rk5cou7 is currently a research prototype focused on URL ingestion, metadata preservation, and classification strategy. The early direction is defined, but live crawling, Tor connectivity, and broader automation are intentionally being treated as future work with stronger safety boundaries and evaluation controls.",
     purpose:
       "Build a structured research system for classifying web content, preserving useful metadata, and helping separate useful signals from noise.",
     techStack: [
