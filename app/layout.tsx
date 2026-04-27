@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ghsolutions.example"),
+  metadataBase: new URL("https://greyhat-solutions.com"),
   title: {
     default: "GreyHat Solutions",
     template: "%s | GreyHat Solutions",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "GreyHat Solutions",
     description:
       "Security-minded systems, technical tools, automation, AI-assisted workflows, and digital infrastructure.",
-    url: "https://ghsolutions.example",
+    url: "https://greyhat-solutions.com",
     siteName: "GreyHat Solutions",
     type: "website",
   },
