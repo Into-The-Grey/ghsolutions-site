@@ -1,11 +1,15 @@
+import PageAtmosphere from "@/components/PageAtmosphere";
+
 type PageShellProps = {
     children: React.ReactNode;
     maxWidth?: "default" | "wide" | "narrow";
+    atmosphere?: boolean;
 };
 
 export default function PageShell({
     children,
     maxWidth = "wide",
+    atmosphere = true,
 }: PageShellProps) {
     const widthClass =
         maxWidth === "narrow"
@@ -15,8 +19,11 @@ export default function PageShell({
                 : "max-w-6xl";
 
     return (
-        <main className="min-h-screen bg-neutral-950 px-6 py-32 text-neutral-100">
-            <section className={`mx-auto ${widthClass}`}>{children}</section>
+        <main className="relative min-h-screen overflow-hidden bg-neutral-950 px-6 py-32 text-neutral-100">
+            {atmosphere ? <PageAtmosphere /> : null}
+            <section className={`relative z-10 mx-auto ${widthClass}`}>
+                {children}
+            </section>
         </main>
     );
 }
