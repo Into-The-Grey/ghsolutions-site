@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
+import PhilosophyTimeline from "@/components/PhilosophyTimeline";
 import SectionHeader from "@/components/SectionHeader";
 import type { Metadata } from "next";
 
@@ -36,6 +37,9 @@ export default function AboutPage() {
           description="If something is worth building, it is worth making understandable, repeatable, and maintainable."
         />
       </div>
+      <section className="mt-24">
+        <PhilosophyTimeline />
+      </section>
     </PageShell>
   );
 }
