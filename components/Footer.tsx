@@ -16,6 +16,7 @@ const footerLinks = [
       { href: "/projects", label: "Projects" },
       { href: "/operations", label: "Operations" },
       { href: "/writeups", label: "Writeups" },
+      { href: "/feed.xml", label: "RSS Feed" },
     ],
   },
   {

@@ -91,6 +91,24 @@ export default function NowPage() {
                 maxWidth="wide"
             />
 
+            <div className="mt-8 rounded-3xl border border-neutral-800 bg-neutral-900/90 p-5 shadow-[0_0_50px_rgba(255,255,255,0.025)] backdrop-blur">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                        <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
+                            Current Snapshot
+                        </p>
+                        <p className="mt-2 text-lg font-semibold text-neutral-100">
+                            Updated April 2026
+                        </p>
+                    </div>
+                    <p className="max-w-xl text-sm leading-6 text-neutral-400">
+                        This page reflects the current public focus of GreyHat Solutions:
+                        active builds, learning tracks, infrastructure work, and queued project
+                        direction.
+                    </p>
+                </div>
+            </div>
+
             {/* Active Builds */}
             <section className="mt-10">
                 <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">

@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     description:
       "Security-minded systems, technical tools, automation, AI-assisted workflows, and digital infrastructure.",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 const themeScript = `
