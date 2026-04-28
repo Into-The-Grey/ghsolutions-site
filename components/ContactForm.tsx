@@ -1,5 +1,6 @@
 "use client";
 import { useForm, ValidationError } from "@formspree/react";
+import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 import type React from "react";
 
@@ -34,6 +35,8 @@ function Field({
 
 export default function ContactForm() {
     const [state, handleSubmit] = useForm(FORM_ID);
+    const searchParams = useSearchParams();
+    const selectedService = searchParams.get("service") ?? "";
 
     if (state.succeeded) {
         return (
@@ -120,7 +123,7 @@ export default function ContactForm() {
                             id="service"
                             name="service"
                             required
-                            defaultValue=""
+                            defaultValue={selectedService}
                             className={inputClass}
                         >
                             <option value="" disabled>

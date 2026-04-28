@@ -1,3 +1,4 @@
+import ButtonLink from "@/components/ButtonLink";
 import Card from "@/components/Card";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
@@ -158,6 +159,25 @@ export default function ServicesPage() {
           the environment, identify the real constraints, define safe boundaries,
           and build something maintainable.
         </p>
+      </section>
+
+      <section className="mt-16 rounded-3xl border border-neutral-800 bg-neutral-900/90 p-8 shadow-[0_0_70px_rgba(255,255,255,0.035)] backdrop-blur">
+        <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+          Start Here
+        </p>
+        <div className="mt-3 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <h2 className="max-w-3xl text-4xl font-bold tracking-tight text-neutral-100">
+              Have a project, system, or technical problem worth scoping?
+            </h2>
+            <p className="mt-5 max-w-2xl leading-7 text-neutral-400">
+              Use the intake form to describe the problem, constraints, timeline,
+              budget range, and technical environment. The first step is defining the
+              scope clearly — not pretending every problem fits a generic package.
+            </p>
+          </div>
+          <ButtonLink href="/contact">Open Intake Form</ButtonLink>
+        </div>
       </section>
     </PageShell>
   );

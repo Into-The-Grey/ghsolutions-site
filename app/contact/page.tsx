@@ -2,6 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import PageShell from "@/components/PageShell";
 import SectionHeader from "@/components/SectionHeader";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -65,7 +66,9 @@ export default function ContactPage() {
             </p>
           </div>
         </aside>
-        <ContactForm />
+        <Suspense fallback={null}>
+          <ContactForm />
+        </Suspense>
       </div>
     </PageShell>
   );
