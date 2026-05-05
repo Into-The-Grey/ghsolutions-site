@@ -2,6 +2,7 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { useSearchParams } from "next/navigation";
 import Script from "next/script";
+import { useEffect } from "react";
 import type React from "react";
 
 const FORM_ID = "xvzdnbwg";
@@ -37,6 +38,14 @@ export default function ContactForm() {
     const [state, handleSubmit] = useForm(FORM_ID);
     const searchParams = useSearchParams();
     const selectedService = searchParams.get("service") ?? "";
+
+    useEffect(() => {
+        if (state.succeeded) {
+            const prefersReducedMotion =
+                document.documentElement.classList.contains("reduced-motion");
+            window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
+        }
+    }, [state.succeeded]);
 
     if (state.succeeded) {
         return (

@@ -89,3 +89,25 @@ body {
 .theme-light .border-neutral-700 {
   border-color: rgb(212 212 212) !important;
 }
+
+/* Hover state overrides for light mode */
+.theme-light .hover\:text-neutral-100:hover {
+  color: rgb(23 23 23) !important;
+}
+
+.theme-light .hover\:border-neutral-600:hover,
+.theme-light .hover\:border-neutral-400:hover {
+  border-color: rgb(163 163 163) !important;
+}
+
+/* Placeholder text */
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+  color: rgb(115 115 115) !important;
+}
+
+/* Select option visibility in light mode */
+.theme-light select option {
+  background-color: rgb(245 245 245);
+  color: rgb(23 23 23);
+}

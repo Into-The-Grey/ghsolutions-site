@@ -5,6 +5,8 @@ import StatusBadge from "@/components/StatusBadge";
 import { getPublishedWriteupBySlug, publishedWriteups } from "@/lib/writeups";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 
 type WriteupPageProps = {
     params: Promise<{
@@ -64,7 +66,33 @@ export default async function WriteupDetailPage({ params }: WriteupPageProps) {
                 <div className="mt-12 space-y-6">
                     {writeup.body.map((section) => (
                         <Card key={section.heading} title={section.heading}>
-                            <p className="leading-8 text-neutral-400">{section.content}</p>
+                            <div className="prose-writeup">
+                                <ReactMarkdown
+                                    rehypePlugins={[rehypeHighlight]}
+                                    components={{
+                                        p: ({ children }) => (
+                                            <p className="mb-4 leading-8 text-neutral-400 last:mb-0">
+                                                {children}
+                                            </p>
+                                        ),
+                                        pre: ({ children }) => (
+                                            <pre className="my-4 overflow-x-auto rounded-2xl border border-neutral-800 bg-neutral-950 p-4 text-sm">
+                                                {children}
+                                            </pre>
+                                        ),
+                                        code: ({ className, children, ...props }) => (
+                                            <code
+                                                className={`${className ?? ""} font-mono text-sm`}
+                                                {...props}
+                                            >
+                                                {children}
+                                            </code>
+                                        ),
+                                    }}
+                                >
+                                    {section.content}
+                                </ReactMarkdown>
+                            </div>
                         </Card>
                     ))}
                 </div>

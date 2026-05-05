@@ -91,28 +91,38 @@ export const writeups = [
         slug: "why-control-matters",
         title: "Why Control Matters",
         category: "Philosophy",
-        status: "Queued",
-        date: "2026-04-27",
-        readTime: "3 min read",
+        status: "Published",
+        date: "2026-05-05",
+        readTime: "4 min read",
         summary:
-            "A planned note on why ownership, clarity, and control matter when building technical systems.",
+            "A note on why ownership, clarity, and control matter when building technical systems — and what it actually means to have a system under control.",
         relatedHref: "/about",
         relatedLabel: "View Operating Philosophy",
         body: [
             {
                 heading: "Control Is Not About Complexity",
                 content:
-                    "Control does not mean self-hosting everything or rejecting managed services. It means knowing where important decisions live, what dependencies exist, and how to recover when something breaks.",
+                    "Control does not mean self-hosting everything, rejecting managed services, or building every component from scratch. It means understanding where critical decisions live, what the actual dependencies are, what breaks when a service goes down, and how long recovery takes. A system with three well-understood components is more controlled than a system with thirty components where only half are documented.",
             },
             {
                 heading: "Good Systems Are Explainable",
                 content:
-                    "A system that cannot be explained cannot be reliably maintained. Documentation, architecture diagrams, and predictable workflows matter because they keep future changes from becoming guesswork.",
+                    "A system that cannot be explained is a system that cannot be maintained reliably. This applies at every level: code that is clever but unreadable, infrastructure that works but is not documented, workflows that depend on a single person who holds all the context. Explainability is not just a collaboration requirement — it is a personal reliability standard. If you cannot explain a system you built six months ago without re-reading every configuration file, it is not fully under your control.",
+            },
+            {
+                heading: "Ownership Without Brittleness",
+                content:
+                    "There is a version of control that goes wrong: building so much custom infrastructure that recovery becomes impossible, or refusing external services so that every component requires active maintenance. Real ownership means choosing dependencies deliberately, understanding their failure modes, and keeping enough of the critical path in your hands that a vendor outage does not disable everything. Managed DNS, managed hosting, and managed form handling are all reasonable choices — as long as you know what they control and what they do not.",
+            },
+            {
+                heading: "When Things Break, Plans Matter More Than Systems",
+                content:
+                    "The real test of a controlled system is not what happens when it works — it is what happens when it breaks. Uncontrolled systems fail silently and get discovered late. Well-controlled systems fail with visibility: logs, error states, monitoring, and a documented recovery path. Control is not just about understanding the happy path. It is about having a clear answer to the question: what do I do when this breaks at 2am and I need to restore it in under an hour?",
             },
             {
                 heading: "The Practical Standard",
                 content:
-                    "The practical standard is simple: build systems that can be understood, repaired, repeated, and improved without losing the thread.",
+                    "The standard is simple: can a system be understood, repaired, handed off, and improved without losing the thread? If the answer requires tribal knowledge, undocumented configuration, or a specific person being awake and available, then the system is not truly controlled yet. That is the gap worth closing first — before adding new features, new services, or more complexity.",
             },
         ],
     },
@@ -120,28 +130,38 @@ export const writeups = [
         slug: "private-infrastructure-stack",
         title: "Private Infrastructure Stack: First Principles",
         category: "Infrastructure",
-        status: "Queued",
-        date: "2026-04-27",
+        status: "Published",
+        date: "2026-05-05",
         readTime: "5 min read",
         summary:
-            "A planned first-principles overview of a private infrastructure stack built around DNS control, deployment clarity, and maintainable documentation.",
+            "A first-principles overview of a private infrastructure stack — starting from domain control, working through deployment, and ending with documentation as the final layer of operational reliability.",
         relatedHref: "/lab",
         relatedLabel: "View Lab Environment",
         body: [
             {
                 heading: "Start with the Domain",
                 content:
-                    "The domain is the front door. Keeping DNS under a reliable control point makes future hosting changes, email configuration, redirects, and security policy easier to manage.",
+                    "The domain name is the front door to every public-facing system. Keeping DNS under a reliable, independent control point — separate from your hosting provider — means future migrations, platform changes, and security configurations stay in your hands. When a hosting provider has an outage, your DNS can still route correctly. When you need to move platforms, the transition does not require transferring domain control at the same time as everything else.",
             },
             {
                 heading: "Separate Hosting from Control",
                 content:
-                    "Managed hosting can be the right choice when the goal is momentum. The important part is not confusing convenience with lock-in. A clean stack keeps the domain, repository, deployment flow, and documentation understandable.",
+                    "Managed hosting platforms are legitimate choices for deployment. The critical distinction is between using a managed platform for convenience and allowing that platform to also own your domain, DNS, email routing, and SSL configuration. Keeping those layers separate means each one can be swapped, upgraded, or audited independently. Convenience is not the enemy of control — conflating all your control points into a single vendor is.",
+            },
+            {
+                heading: "The Deployment Chain",
+                content:
+                    "A well-structured deployment chain is traceable at every step:\n\n```bash\n# Standard deploy flow\ngit add .\ngit commit -m \"describe the change\"\ngit push origin main\n# Vercel detects push, builds, deploys\n# Cloudflare routes and caches the result\n```\n\nEach step is visible: Git shows what changed and when, Vercel shows what built and deployed, Cloudflare shows routing and cache state. If something fails at any point, the failure is isolated and diagnosable. The chain should be simple enough to explain in one sentence and auditable enough to verify without guesswork.",
+            },
+            {
+                heading: "Recovery Planning Is Not Optional",
+                content:
+                    "Infrastructure that has never been restored from backup is not actually backed up — it is hoped to be backed up. Recovery planning means testing that backups contain what you expect, that restore procedures are documented, and that recovery time is understood before a failure happens. The questions worth answering in advance: How long does it take to redeploy the site from scratch? What data exists only in one location? What is the fallback if the primary hosting provider is unavailable for 24 hours?",
             },
             {
                 heading: "Document the Chain",
                 content:
-                    "Every production project should have a clear chain: local development, source control, deployment platform, DNS provider, monitoring, and recovery notes.",
+                    "Documentation for a private infrastructure stack is operational insurance. The chain worth documenting includes: domain registrar and renewal date, DNS provider and active records, hosting platform and deployment configuration, environment variables and where they are stored, database location and backup schedule, and any external services the system depends on. The goal is that anyone familiar with the technology should be able to reconstruct the environment from the documentation alone — without asking questions and without guessing.",
             },
         ],
     },

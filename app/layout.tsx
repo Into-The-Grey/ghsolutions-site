@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import "highlight.js/styles/github-dark.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
