@@ -12,10 +12,10 @@ const stackCategories = [
     {
         category: "Frontend",
         items: [
-            { name: "Next.js 15", note: "App Router, SSG, TypeScript-first" },
+            { name: "Next.js 16", note: "App Router, SSG, TypeScript-first" },
             { name: "TypeScript 5", note: "Strict mode, as const data patterns" },
             { name: "Tailwind CSS v4", note: "Utility-first, dark theme, Tailwind v4 scale utilities" },
-            { name: "React 19", note: "Server and client component model" },
+            { name: "React 19.2", note: "Server and client component model" },
         ],
     },
     {

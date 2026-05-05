@@ -25,6 +25,9 @@ function WriteupCard({ writeup }: { writeup: (typeof publishedWriteups)[number] 
                     <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
                         {writeup.readTime}
                     </span>
+                    <span className="rounded-full border border-neutral-800 bg-neutral-950 px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
+                        {writeup.date}
+                    </span>
                 </div>
             </Card>
         </Link>
